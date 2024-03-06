@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:th="http://www.thymeleaf.org">
+    <head th:replace="~{layout/plantilla :: head}">
+        <title>Barber Shop</title>
+    </head>
+    <body>
+        <header th:replace="~{layout/plantilla :: header}"/>
+        <aside th:fragment="aside" style="background-color: #A6A6A6; color: white; size: 40px; width: 350px; height: 90vh; float: left;"  class="text-start">
+            <br style="margin-top: 0px;">
+            <h2 style="text-align: center;">Nuestros Servicios</h2>
+            <hr style="color: white;">
+                <br>
+                <nav>
+                    <ul style="padding-inline-start: 20px; list-style-type: none;">
+                        <h3>Corte Clasico ₡4500</h3>
+                        <li>Recorte de cabello</li>
+                        <li>Marcado de cejas</li> 
+                        <li>Lavado de cabello</li>
+                        <br style="margin-bottom: 0px;">
+                        <h3>Corte y Barva ₡6000</h3>
+                        <li>Recorte de cabello</li>
+                        <li>Barva Completa</li>
+                        <li>Marcado de cejas</li> 
+                        <li>Lavado de cabello</li>
+                        <li>Recorte de vellos en la nariz y oídos</li>
+                        <br style="margin-bottom: 0px;">
+                        <h3>Solo Barva ₡3500</h3>
+                        <li>Barva Completa</li>
+                        <li>Marcado de cejas</li>
+                        <li>Recorte de vellos en la nariz y oídos</li>
+                        <br style="margin-bottom: 0px;">
+                        <h3>Limpieza facial ₡8000</h3>
+                        <li>Mascarilla exfoliante</li>
+                        <li>Crema dérmica</li>
+                        <li>Marcado de cejas</li> 
+                        <li>Crema-Gel humectante</li>
+                        <li>Masaje facial con maquina</li>
+                         <br style="margin-bottom: 0px;">
+                    </ul>
+                </nav>
+        </aside>
+      <section style="overflow-y: auto; margin-left: 300px;">
+    <div style="display: flex;">
+        <div style="flex: 1; background-color: #F0F0F0; padding: 20px; text-align: center; height: 90vh;">
+            <h2 style="text-align: center">Nuevo local en Heredia</h2>
+            <br>
+                    <p>Cada vez nos expandimos más y eso es gracias a ustedes y a su apoyo.</p>
+
+                    <p>Ahora contamos con un nuevo local en Heredia Centro a tan solo 100m al este</p> 
+                    <p>de la iglesia de Heredia</p>
+                    <img src="https://i.pinimg.com/originals/c2/76/68/c27668df5f501a992c96dae284a19b95.jpg" alt="Lord Barber Medellín - Adrede Design barberia, diseño, medellin ..." class=" nofocus" tabindex="0" aria-label="Lord Barber Medellín - Adrede Design barberia, diseño, medellin ..." role="button" style="height: 45%; width: 70%;" data-bm="22"></img>    
+                        <br></br>
+                        <p>Gracias por preferirnos, queremos que seas parte y nos acompañes</p>  
+                    <p>en estos nuevos procesos</p> 
+                    
+        </div>
+        <div style="border-left: 1px solid #434B4D; flex: 0; height: 100%;"></div>
+        <div style="flex: 1; background-color: #F0F0F0; padding: 20px; text-align: center; height: 90vh;">
+            <h2 style="text-align: center">Oferta Semanal</h2>
+            <br>
+            <h4>Corte clasico por tan solo ₡3500</h4> 
+            <p>Martes y viernes el corte clasico a mitad de precio</p>
+            <img src="https://swankyman.com/wp-content/uploads/How-To-Cut-Hair.jpg" alt="A Beginners Guide to Using Hair Clippers – Cut Hair Like A Pro ..." class=" nofocus" tabindex="0" aria-label="A Beginners Guide to Using Hair Clippers – Cut Hair Like A Pro ..." role="button" style="height: 30%; width: 60%;" data-bm="22">
+            <br>
+                <p>No dejes perder esta oportunidad y aprovecha ya</p>
+                    <h4>Cera de Cabello a mitad de precio</h4>
+                    <p>Toda esta semana la cera para cabello está rebajada</p> 
+                    <img src="https://www.ronellsny.com/cdn/shop/files/American.jpg?v=1668714648&amp;width=750" alt="Ronells - Official Site | Premium Brands" class=" nofocus" tabindex="0" aria-label="Ronells - Official Site | Premium Brands" role="button" style="height: 30%; width: 60%;">
+                    <p>Cera de gran calidad con brillo mate y olor refrescante</p> 
+                    <br> 
+        </div>
+    </div>
+</section>
+        <footer th:replace="~{layout/plantilla :: footer}"/>      
+
+    </body>
+</html>

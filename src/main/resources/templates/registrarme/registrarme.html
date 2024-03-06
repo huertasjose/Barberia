@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:th="http://www.thymeleaf.org">
+    <head th:replace="~{layout/plantilla :: head}">
+        <title>Barberia</title>
+    </head>
+    <body>
+        <header class="text-center py-5" style="background-color: #434B4D; color: white; font-size: 60px;">
+            Barber Shop
+        </header>
+
+        <section style="background-color: white; color: black;">
+            <div class="container">
+                <h2 class="text-center mb-4 mt-4">Registrarme</h2>
+                <form style="max-width: 300px; margin: 40px auto;">
+                    <div class="row mb-3">
+                        <label for="nombre" class="col-sm-9 col-form-label">Nombre Completo</label>
+                        <div class="col-sm-12">
+                            <input type="text" class="form-control" id="nombre" placeholder="Nombre y apellidos">
+                        </div>
+                    </div>
+                    <div class="row mb-3">
+                        <label for="telefono" class="col-sm-9 col-form-label">Telefono</label>
+                        <div class="col-sm-12">
+                            <input type="text" class="form-control" id="telefono" placeholder="Telefono">
+                        </div>
+                    </div>
+                    <div class="row mb-3">
+                        <label for="correo" class="col-sm-9 col-form-label">Correo</label>
+                        <div class="col-sm-12">
+                            <input type="text" class="form-control" id="correo" placeholder="Correo">
+                        </div>
+                    </div>
+                    <div class="row mb-3">
+                        <label for="contrasena" class="col-sm-9 col-form-label">Contraseña</label>
+                        <div class="col-sm-12">
+                            <input type="password" class="form-control" id="contrasena" placeholder="Contraseña">
+                        </div>
+                    </div>
+                    <hr style="color: white"></hr>
+                    <div class="row mb-3">
+                       <div class="col-sm-12 text-center">
+                            <button type="button" id="ingresarButton" class="btn btn-light mx-3" style="color: black; border-color: black; width: 50%;">Ingresar</button>
+                            <hr style="color: white; margin: 10px"></hr>
+                            <button type="button" id="inicioSesion" class="btn btn-light mx-3" style="color: black; border-color: black; width: 50%;">Iniciar Sesion</button>
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </section>
+        <footer th:replace="~{layout/plantilla :: footer}"/>
+       <script>
+            document.getElementById("ingresarButton").onclick = function() {
+                window.location.href = "/barberia/menu";
+            };
+            document.getElementById("inicioSesion").onclick = function() {
+                window.location.href = "/barberia/index";
+            };
+        </script>
+    </body>
+</html>
