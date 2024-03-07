@@ -30,6 +30,15 @@ public class BarberiaController {
 public String mostrarPerfil(Model model) {
     return "barberia/perfil";
 }
+ @GetMapping("/agendar")
+    public String mostrarAgenda() {
+        return "barberia/agendar"; 
+    }
+    
+    @GetMapping("/lugar")
+    public String mostrarLugar() {
+        return "barberia/lugar"; 
+    }
 }
 
    

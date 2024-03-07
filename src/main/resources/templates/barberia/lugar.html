@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:th="http://www.thymeleaf.org">
+<head th:replace="~{layout/plantilla :: head}">
+    <link rel="stylesheet" href="style.css" type="text/css"/>
+
+    <title>Barberia</title>
+</head>
+<body>
+<header class="text-center py-5" style="background-color: #434B4D; color: white; font-size: 60px;">
+    Barber Shop
+</header>
+
+<section style="background-color: white; color: black;">
+    <div class="container">
+        <div class="row justify-content-center">
+            <div class="col-md-6">
+                <h2 class="text-center mb-4 mt-4">Seleccionar Sede</h2>
+                <form>
+                    <div class="mb-3">
+                        <label for="sede" class="form-label">Sede</label>
+                        <select class="form-select" id="sede">
+                            <option value="guadalupe" selected>Guadalupe</option>
+                            <option value="heredia">Heredia</option>
+                        </select>
+                    </div>
+                </form>
+            </div>
+        </div>
+        <div class="row justify-content-center mt-4" id="barberosContainer">
+            <div class="col-md-6" id="barberosGuadalupe">
+                <h2 class="text-center">Barberos de Guadalupe</h2>
+                <div class="row">
+                    <div class="col-md-4 mb-3">
+                        <button type="button" class="btn btn-light btn-block mb-n2" onclick="seleccionarBarbero('Barbero 1')">Barbero 1</button>
+                    </div>
+                    <div class="col-md-4 mb-3">
+                        <button type="button" class="btn btn-light btn-block mb-n2" onclick="seleccionarBarbero('Barbero 2')">Barbero 2</button>
+                    </div>
+                    <div class="col-md-4 mb-3">
+                        <button type="button" class="btn btn-light btn-block mb-n2" onclick="seleccionarBarbero('Barbero 3')">Barbero 3</button>
+                    </div>
+                    <div class="col-md-4 mb-3">
+                        <button type="button" class="btn btn-light btn-block mb-n2" onclick="seleccionarBarbero('Barbero 4')">Barbero 4</button>
+                    </div>
+                    <div class="col-md-4 mb-3">
+                        <button type="button" class="btn btn-light btn-block mb-n2" onclick="seleccionarBarbero('Barbero 5')">Barbero 5</button>
+                    </div>
+                    <div class="col-md-4 mb-3">
+                        <button type="button" class="btn btn-light btn-block mb-n2" onclick="seleccionarBarbero('Barbero 6')">Barbero 6</button>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-6" id="barberosHeredia" style="display: none;">
+                <h2 class="text-center">Barberos de Heredia</h2>
+                <div class="row">
+                    <div class="col-md-4 mb-3">
+                        <button type="button" class="btn btn-light btn-block mb-n2" onclick="seleccionarBarbero('Barbero A')">Barbero A</button>
+                    </div>
+                    <div class="col-md-4 mb-3">
+                        <button type="button" class="btn btn-light btn-block mb-n2" onclick="seleccionarBarbero('Barbero B')">Barbero B</button>
+                    </div>
+                    <div class="col-md-4 mb-3">
+                        <button type="button" class="btn btn-light btn-block mb-n2" onclick="seleccionarBarbero('Barbero C')">Barbero C</button>
+                    </div>
+                    <div class="col-md-4 mb-3">
+                        <button type="button" class="btn btn-light btn-block mb-n2" onclick="seleccionarBarbero('Barbero D')">Barbero D</button>
+                    </div>
+                    <div class="col-md-4 mb-3">
+                        <button type="button" class="btn btn-light btn-block mb-n2" onclick="seleccionarBarbero('Barbero E')">Barbero E</button>
+                    </div>
+                    <div class="col-md-4 mb-3">
+                        <button type="button" class="btn btn-light btn-block mb-n2" onclick="seleccionarBarbero('Barbero F')">Barbero F</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<footer th:replace="~{layout/plantilla :: footer}"/>
+<script>
+    document.addEventListener('DOMContentLoaded', function() {
+        var sedeSelect = document.getElementById("sede");
+        sedeSelect.addEventListener('change', function() {
+            var selectedOption = sedeSelect.options[sedeSelect.selectedIndex].value;
+            if (selectedOption === "guadalupe") {
+                mostrarBarberosGuadalupe();
+            } else if (selectedOption === "heredia") {
+                mostrarBarberosHeredia();
+            }
+        });
+    });
+
+    function mostrarBarberosGuadalupe() {
+        document.getElementById("barberosHeredia").style.display = "none";
+        document.getElementById("barberosGuadalupe").style.display = "block";
+    }
+
+    function mostrarBarberosHeredia() {
+        document.getElementById("barberosGuadalupe").style.display = "none";
+        document.getElementById("barberosHeredia").style.display = "block";
+    }
+
+    function seleccionarBarbero(barbero) {
+        alert("Has seleccionado a: " + barbero);
+    }
+</script>
+</body>
+</html>

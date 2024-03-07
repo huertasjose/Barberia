@@ -18,6 +18,7 @@ public class UsuarioController {
 
     @GetMapping("/perfil")
     public String mostrarPerfil(Model model) {
+        // Obtener el correo de la sesión actual o cualquier otra forma de identificación del usuario
         String correo = "admino"; 
 
         String sql = "SELECT * FROM usuarios WHERE correo = ?";
@@ -28,14 +29,34 @@ public class UsuarioController {
     }
 
     @PostMapping("/login")
-    public String login(@RequestParam String correo, @RequestParam String contrasena) {
-        String sql = "SELECT COUNT(*) FROM usuarios WHERE correo = ? AND contrasena = ?";
-        int count = jdbcTemplate.queryForObject(sql, Integer.class, correo, contrasena);
+    public String login(@RequestParam String correo, @RequestParam String contrasena, Model model) {
+        if (usuarioExiste(correo)) {
+            String sql = "SELECT COUNT(*) FROM usuarios WHERE correo = ? AND contrasena = ?";
+            int count = jdbcTemplate.queryForObject(sql, Integer.class, correo, contrasena);
 
-        if (count == 1) {
-            return "redirect:/perfil";
+            if (count == 1) {
+                return "redirect:/perfil";
+            } else {
+                model.addAttribute("error", "Contraseña incorrecta.");
+                return "redirect:/login";
+            }
         } else {
-            return "redirect:/error";
+            model.addAttribute("error", "El usuario no existe. Regístrese.");
+            return "redirect:/login";
         }
+    }
+
+    @PostMapping("/registrarme")
+    public String registrarme(@RequestParam String nombre, @RequestParam String telefono,
+                              @RequestParam String correo, @RequestParam String contrasena) {
+        String sql = "INSERT INTO usuarios (nombre, telefono, correo, contrasena) VALUES (?, ?, ?, ?)";
+        jdbcTemplate.update(sql, nombre, telefono, correo, contrasena);
+        return "redirect:/login";
+    }
+
+    private boolean usuarioExiste(String correo) {
+        String sql = "SELECT COUNT(*) FROM usuarios WHERE correo = ?";
+        int count = jdbcTemplate.queryForObject(sql, Integer.class, correo);
+        return count == 1;
     }
 }
