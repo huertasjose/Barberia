@@ -47,6 +47,11 @@ public String mostrarPerfil(Model model) {
     public String mostrarConfirmar() {
         return "barberia/confirmar"; 
     }
+    @GetMapping("/productos")
+    public String mostrarProductos(Model model) {
+        return "barberia/productos";
+    }
+
     
 }
 

@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:th="http://www.thymeleaf.org">
+     <head th:replace="~{layout/plantilla :: head}">
+        <title>Barber Shop</title>
+    </head>
+    <body>
+            <header th:replace="~{layout/plantilla :: header}"/>
+        <aside th:fragment="aside" style="background-color: #A6A6A6; color: white; size: 40px; width: 350px; height: 90vh; float: left;"  class="text-start">
+            <br style="margin-top: 0px;">
+            <h2 style="text-align: center;">Nuestros Poductos</h2>
+            <hr style="color: white;">
+                <br>
+                <nav>
+                    <ul style="padding-inline-start: 20px; list-style-type: none;">
+                        <h3>Ceras para el cabello</h3>
+                        <li>Cera efecto mate</li>
+                        <li>Cera efecto neutro</li> 
+                        <li>Cera efecto brillo</li>
+                        <br style="margin-bottom: 0px;">
+                        <h3>Mascarillas para cabello</h3>
+                        <li>Hydra Milk</li>
+                        <li>Filtro UV</li>
+                        <br style="margin-bottom: 0px;">
+                        <h3>Productos para barba</h3>
+                        <li>Cera para barba</li>
+                        <li>Acondicionador para barba</li>
+                        <li>Aceite de barba</li>
+                        <br style="margin-bottom: 0px;">
+                        
+                    </ul>
+                </nav>
+        </aside>
+      <section style="overflow-y: auto; margin-left: 300px;">
+    <div style="display: flex;">
+        <div style="flex: 1; background-color: #F0F0F0; padding: 20px; text-align: center; height: 90vh;">
+            <h2 style="text-align: center">Kit completo para Barba</h2>
+            <br>
+                    <h4>Lumberjack</h4>
+                    <p>Jabón acondicionador 60gr</p>
+                    <p>2xTónicos de crecimiento 30ml</p> 
+                    <p>Aceite hidratante 30ml</p>
+                    <img src="https://cc2.demercas.com/5219/lumberjack-kit-barba-2-tonico-1-aceite-1-jabon-1-vitaminas.jpg" alt="kit para barba lumberjack" class=" nofocus" tabindex="0" aria-label="kit para barba lumberjack" role="button" style="height: 45%; width: 45%;" data-bm="22"></img>    
+                        <br></br>
+                        <p>₡34.995</p>      
+        </div>
+        
+        <div style="flex: 1; background-color: #F0F0F0; padding: 20px; text-align: center; height: 90vh;">
+            <h2 style="text-align: center">Kit Elgon</h2>
+            <br>
+                    <h4>Shampoo+Mascarilla+Solar</h4>
+                    <p>Shampoo ELGON 250 ml</p>
+                    <img src="https://elgoncosmetic.com/cdn/shop/products/YesShine_Shampoo_250ml.jpg?v=1693404844&width=823" alt="Shampoo elgon" class=" nofocus" tabindex="0" aria-label="Shampoo elgon" role="button" style="height: 30%; width: 30%;" data-bm="22"></img>    
+                    <p>Mascarilla ELGON 100 ml</p>
+                    <img src="https://elgoncosmetic.com/cdn/shop/files/YesCurl_HydraMask_100ml_73f80f6b-9abd-4d5d-9499-c95fb2d448aa.png?v=1691510512&width=823" alt="mascarilla elgon" class=" nofocus" tabindex="0" aria-label="mascarilla elgon" role="button" style="height: 30%; width: 30%;" data-bm="22"></img>    
+                    <p>Solar ELGON 150 ml</p>
+                    <img src="https://elgoncosmetic.com/cdn/shop/products/ColorcareSuncare_Leave-inHidraMilk_150ml.jpg?v=1681806473&width=823" alt="solar elgon" class=" nofocus" tabindex="0" aria-label="solar elgon" role="button" style="height: 30%; width: 30%;" data-bm="22"></img>    
+                       
+                        <p>₡39.995</p>    
+                         <br></br>
+        </div>
+        
+    </div>
+</section>
+     <footer th:replace="~{layout/plantilla :: footer}"/>
+    </body>
+</html>
