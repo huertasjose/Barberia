@@ -39,6 +39,15 @@ public String mostrarPerfil(Model model) {
     public String mostrarLugar() {
         return "barberia/lugar"; 
     }
+    @GetMapping("/hora")
+    public String mostrarHora() {
+        return "barberia/hora"; 
+    }
+    @GetMapping("/confirmar")
+    public String mostrarConfirmar() {
+        return "barberia/confirmar"; 
+    }
+    
 }
 
    

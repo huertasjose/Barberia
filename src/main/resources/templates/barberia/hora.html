@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org">
+    <head th:replace="~{layout/plantilla :: head}">
+        <link rel="stylesheet" href="style.css" type="text/css"/>
+
+        <title>Barberia - Seleccionar Hora</title>
+    </head>
+    <body>
+        <header class="text-center py-5" style="background-color: #434B4D; color: white; font-size: 60px;">
+            Barber Shop
+        </header>
+
+        <section style="background-color: white; color: black;">
+            <div class="container">
+                <div class="row justify-content-center">
+                    <div class="col-md-6">
+                        <h2 class="text-center mb-4 mt-4">Seleccionar Hora</h2>
+                        <div class="row">
+                            <div class="col">
+                                <div class="list-group" id="horaColumna1">
+                                </div>
+                                <br>
+                            </div>
+                            <div class="col">
+                                <div class="list-group" id="horaColumna2">
+                                </div>
+                                <br>
+                            </div>
+
+                            <div class="text-center">
+                                <button type="button" id="confirmarButton" class="btn btn-light" style="color: black; border-color: black; width: 30%;">Confirmar</button>
+                                <br>
+                            </div>
+                            <br>
+                            <div class="text-center">
+                                <br>
+                                <button type="button" id="volverButton" class="btn btn-light" style="color: black; border-color: black; width: 30%;">Volver</button>
+                                <br>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <footer th:replace="~{layout/plantilla :: footer}"/>
+        <script>
+            document.getElementById("confirmarButton").onclick = function () {
+                window.location.href = "/barberia/confirmar";
+            };
+            document.getElementById("volverButton").onclick = function () {
+                window.location.href = "/barberia/lugar";
+            };
+            document.addEventListener('DOMContentLoaded', function () {
+                var horas = [];
+                var horaInicial = 9;
+                var minutosInicial = 30;
+                var horaFinal = 18;
+                var minutosFinal = 0;
+
+                while (horaInicial < horaFinal || (horaInicial === horaFinal && minutosInicial <= minutosFinal)) {
+                    var hora = horaInicial < 10 ? '0' + horaInicial : horaInicial;
+                    var minutos = minutosInicial < 10 ? '0' + minutosInicial : minutosInicial;
+                    var horaString = hora + ':' + minutos;
+                    horas.push(horaString);
+
+                    // Incrementar la hora
+                    minutosInicial += 30;
+                    if (minutosInicial >= 60) {
+                        minutosInicial -= 60;
+                        horaInicial++;
+                    }
+                }
+
+                // Dividir las horas en dos partes
+                var mitad = Math.ceil(horas.length / 2);
+                var primeraMitad = horas.slice(0, mitad);
+                var segundaMitad = horas.slice(mitad);
+
+                // Mostrar las horas en las dos columnas
+                var listGroup1 = document.getElementById('horaColumna1');
+                var listGroup2 = document.getElementById('horaColumna2');
+
+                primeraMitad.forEach(function (hora) {
+                    var button = document.createElement('button');
+                    button.type = 'button';
+                    button.classList.add('list-group-item', 'list-group-item-action');
+                    button.innerText = hora;
+                    button.onclick = function () {
+                        // Aquí puedes manejar la lógica para cuando se seleccione una hora
+                        alert('Has seleccionado la hora ' + hora);
+                    };
+                    listGroup1.appendChild(button);
+                });
+
+                segundaMitad.forEach(function (hora) {
+                    var button = document.createElement('button');
+                    button.type = 'button';
+                    button.classList.add('list-group-item', 'list-group-item-action');
+                    button.innerText = hora;
+                    button.onclick = function () {
+                        // Aquí puedes manejar la lógica para cuando se seleccione una hora
+                        alert('Has seleccionado la hora ' + hora);
+                    };
+                    listGroup2.appendChild(button);
+                });
+            });
+        </script>
+    </body>
+</html>

@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+    <head th:replace="~{layout/plantilla :: head}">
+        <title>Barberia</title>
+    </head>
+    <body>
+        <header class="text-center py-5" style="background-color: #434B4D; color: white; font-size: 60px;">
+            Barber Shop
+        </header>
+
+        <section style="background-color: white; color: black;">
+            <div class="container">
+                <h2 class="text-center mb-4 mt-4" style="text-align: center;">Confirmación de Cita</h2>
+                <div class="row">
+                    <div class="col-md-6 offset-md-3">
+                        <div class="card p-4">
+                            <h3 style="text-align: center;">¡Gracias por tu reserva!</h3>
+                            <p style="text-align: center;">A continuación, te presentamos los detalles de tu cita:</p>
+                            <ul>
+                                <li><strong>Fecha de la cita:</strong> <span id="fechaCita"></span></li>
+                                <li><strong>Lugar:</strong> <span id="lugar"></span></li>
+                                <li><strong>Barbero:</strong> <span id="barbero"></span></li>
+                                <li><strong>Hora:</strong> <span id="hora"></span></li>
+                            </ul>
+                        </div>
+                        <br>
+                    </div>
+                    <div class="text-center">
+                                <button type="button" id="aceptar" class="btn btn-light" style="color: black; border-color: black; width: 30%;">Aceptar</button>
+                                <br>
+                            </div>
+                </div>
+            </div>
+        </section>
+
+        <footer th:replace="~{layout/plantilla :: footer}"/>
+
+
+        <script>
+            document.getElementById("aceptar").onclick = function () {
+                window.location.href = "/barberia/menu";
+            };
+            const urlParams = new URLSearchParams(window.location.search);
+            const fechaCita = urlParams.get('fecha');
+            const lugar = urlParams.get('lugar');
+            const barbero = urlParams.get('barbero');
+            const hora = urlParams.get('hora');
+
+            // Mostrar los detalles de la cita en el HTML
+            document.getElementById('fechaCita').innerText = fechaCita;
+            document.getElementById('lugar').innerText = lugar;
+            document.getElementById('barbero').innerText = barbero;
+            document.getElementById('hora').innerText = hora;
+        </script>
+
+    </body>
+</html>

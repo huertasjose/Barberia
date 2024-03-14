@@ -1,110 +1,101 @@
 <!DOCTYPE html>
-<html xmlns="http://www.w3.org/1999/xhtml"
-      xmlns:th="http://www.thymeleaf.org">
-<head th:replace="~{layout/plantilla :: head}">
-    <link rel="stylesheet" href="style.css" type="text/css"/>
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org">
+    <head th:replace="~{layout/plantilla :: head}">
+        <link rel="stylesheet" href="style.css" type="text/css"/>
 
-    <title>Barberia</title>
-</head>
-<body>
-<header class="text-center py-5" style="background-color: #434B4D; color: white; font-size: 60px;">
-    Barber Shop
-</header>
+        <title>Barberia</title>
+    </head>
+    <body>
+        <header class="text-center py-5" style="background-color: #434B4D; color: white; font-size: 60px;">
+            Barber Shop
+        </header>
 
-<section style="background-color: white; color: black;">
-    <div class="container">
-        <div class="row justify-content-center">
-            <div class="col-md-6">
-                <h2 class="text-center mb-4 mt-4">Seleccionar Sede</h2>
-                <form>
-                    <div class="mb-3">
-                        <label for="sede" class="form-label">Sede</label>
-                        <select class="form-select" id="sede">
-                            <option value="guadalupe" selected>Guadalupe</option>
-                            <option value="heredia">Heredia</option>
-                        </select>
+        <section style="background-color: white; color: black;">
+            <div class="container">
+                <div class="row justify-content-center">
+                    <div class="col-md-6">
+                        <h2 class="text-center mb-4 mt-4">Seleccionar Sede</h2>
+                        <form>
+                            <div class="mb-3">
+                                <label for="sede" class="form-label">Sede</label>
+                                <select class="form-select" id="sede">
+                                    <option value="guadalupe" selected>Guadalupe</option>
+                                    <option value="heredia">Heredia</option>
+                                </select>
+                            </div>
+                        </form>
                     </div>
-                </form>
-            </div>
-        </div>
-        <div class="row justify-content-center mt-4" id="barberosContainer">
-            <div class="col-md-6" id="barberosGuadalupe">
-                <h2 class="text-center">Barberos de Guadalupe</h2>
-                <div class="row">
-                    <div class="col-md-4 mb-3">
-                        <button type="button" class="btn btn-light btn-block mb-n2" onclick="seleccionarBarbero('Barbero 1')">Barbero 1</button>
+                </div>
+                <div class="row justify-content-center mt-4" id="barberosContainer">
+                    <div class="col-md-6" id="barberosGuadalupe">
+                        <h2 class="text-center">Barberos de Guadalupe</h2>
+                        <br>
+                            <div class="list-group">
+                                <button type="button" class="list-group-item list-group-item-action" onclick="seleccionarBarbero('Barbero 1')">Marcos</button>
+                                <button type="button" class="list-group-item list-group-item-action" onclick="seleccionarBarbero('Barbero 2')">Jose</button>
+                                <button type="button" class="list-group-item list-group-item-action" onclick="seleccionarBarbero('Barbero 3')">Daniella</button>
+                                <button type="button" class="list-group-item list-group-item-action" onclick="seleccionarBarbero('Barbero 4')">Carlos</button>
+                                <button type="button" class="list-group-item list-group-item-action" onclick="seleccionarBarbero('Barbero 5')">Alex</button>
+                                <button type="button" class="list-group-item list-group-item-action" onclick="seleccionarBarbero('Barbero 6')">Catalina</button>
+                                <br>
+                            </div>
                     </div>
-                    <div class="col-md-4 mb-3">
-                        <button type="button" class="btn btn-light btn-block mb-n2" onclick="seleccionarBarbero('Barbero 2')">Barbero 2</button>
+                    <div class="col-md-6" id="barberosHeredia" style="display: none;">
+                        <h2 class="text-center">Barberos de Heredia</h2>
+                        <br>
+                            <div class="list-group">
+                                <button type="button" class="list-group-item list-group-item-action" onclick="seleccionarBarbero('Barbero A')">Maria</button>
+                                <button type="button" class="list-group-item list-group-item-action" onclick="seleccionarBarbero('Barbero B')">Harry</button>
+                                <button type="button" class="list-group-item list-group-item-action" onclick="seleccionarBarbero('Barbero C')">Rodrigo</button>
+                                <button type="button" class="list-group-item list-group-item-action" onclick="seleccionarBarbero('Barbero D')">Juan</button>
+                                <button type="button" class="list-group-item list-group-item-action" onclick="seleccionarBarbero('Barbero E')">Carla</button>
+                                <button type="button" class="list-group-item list-group-item-action" onclick="seleccionarBarbero('Barbero F')">Santiago</button>
+                                <br>
+                            </div>
                     </div>
-                    <div class="col-md-4 mb-3">
-                        <button type="button" class="btn btn-light btn-block mb-n2" onclick="seleccionarBarbero('Barbero 3')">Barbero 3</button>
+                    <div class="text-center">
+                        <button type="button" id="horaButton" class="btn btn-light" style="color: black; border-color: black; width: 30%;">Continuar</button>
+                        <br>
                     </div>
-                    <div class="col-md-4 mb-3">
-                        <button type="button" class="btn btn-light btn-block mb-n2" onclick="seleccionarBarbero('Barbero 4')">Barbero 4</button>
-                    </div>
-                    <div class="col-md-4 mb-3">
-                        <button type="button" class="btn btn-light btn-block mb-n2" onclick="seleccionarBarbero('Barbero 5')">Barbero 5</button>
-                    </div>
-                    <div class="col-md-4 mb-3">
-                        <button type="button" class="btn btn-light btn-block mb-n2" onclick="seleccionarBarbero('Barbero 6')">Barbero 6</button>
+                    <br>
+                    <div class="text-center">
+                        <br>
+                        <button type="button" id="volverButton" class="btn btn-light" style="color: black; border-color: black; width: 30%;">Volver</button>
+                        <br>
                     </div>
                 </div>
             </div>
-            <div class="col-md-6" id="barberosHeredia" style="display: none;">
-                <h2 class="text-center">Barberos de Heredia</h2>
-                <div class="row">
-                    <div class="col-md-4 mb-3">
-                        <button type="button" class="btn btn-light btn-block mb-n2" onclick="seleccionarBarbero('Barbero A')">Barbero A</button>
-                    </div>
-                    <div class="col-md-4 mb-3">
-                        <button type="button" class="btn btn-light btn-block mb-n2" onclick="seleccionarBarbero('Barbero B')">Barbero B</button>
-                    </div>
-                    <div class="col-md-4 mb-3">
-                        <button type="button" class="btn btn-light btn-block mb-n2" onclick="seleccionarBarbero('Barbero C')">Barbero C</button>
-                    </div>
-                    <div class="col-md-4 mb-3">
-                        <button type="button" class="btn btn-light btn-block mb-n2" onclick="seleccionarBarbero('Barbero D')">Barbero D</button>
-                    </div>
-                    <div class="col-md-4 mb-3">
-                        <button type="button" class="btn btn-light btn-block mb-n2" onclick="seleccionarBarbero('Barbero E')">Barbero E</button>
-                    </div>
-                    <div class="col-md-4 mb-3">
-                        <button type="button" class="btn btn-light btn-block mb-n2" onclick="seleccionarBarbero('Barbero F')">Barbero F</button>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-</section>
+        </section>
 
-<footer th:replace="~{layout/plantilla :: footer}"/>
-<script>
-    document.addEventListener('DOMContentLoaded', function() {
-        var sedeSelect = document.getElementById("sede");
-        sedeSelect.addEventListener('change', function() {
-            var selectedOption = sedeSelect.options[sedeSelect.selectedIndex].value;
-            if (selectedOption === "guadalupe") {
-                mostrarBarberosGuadalupe();
-            } else if (selectedOption === "heredia") {
-                mostrarBarberosHeredia();
+        <footer th:replace="~{layout/plantilla :: footer}"/>
+        <script>
+            document.getElementById("horaButton").onclick = function () {
+                window.location.href = "/barberia/hora";
+            };
+            document.getElementById("volverButton").onclick = function () {
+                window.location.href = "/barberia/agendar";
+            };
+            document.addEventListener('DOMContentLoaded', function () {
+                var sedeSelect = document.getElementById("sede");
+                sedeSelect.addEventListener('change', function () {
+                    var selectedOption = sedeSelect.options[sedeSelect.selectedIndex].value;
+                    if (selectedOption === "guadalupe") {
+                        mostrarBarberosGuadalupe();
+                    } else if (selectedOption === "heredia") {
+                        mostrarBarberosHeredia();
+                    }
+                });
+            });
+
+            function mostrarBarberosGuadalupe() {
+                document.getElementById("barberosHeredia").style.display = "none";
+                document.getElementById("barberosGuadalupe").style.display = "block";
             }
-        });
-    });
 
-    function mostrarBarberosGuadalupe() {
-        document.getElementById("barberosHeredia").style.display = "none";
-        document.getElementById("barberosGuadalupe").style.display = "block";
-    }
-
-    function mostrarBarberosHeredia() {
-        document.getElementById("barberosGuadalupe").style.display = "none";
-        document.getElementById("barberosHeredia").style.display = "block";
-    }
-
-    function seleccionarBarbero(barbero) {
-        alert("Has seleccionado a: " + barbero);
-    }
-</script>
-</body>
+            function mostrarBarberosHeredia() {
+                document.getElementById("barberosGuadalupe").style.display = "none";
+                document.getElementById("barberosHeredia").style.display = "block";
+            }
+        </script>
+    </body>
 </html>

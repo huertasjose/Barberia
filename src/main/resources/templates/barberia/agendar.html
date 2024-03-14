@@ -33,8 +33,14 @@
               <label for="fecha" class="form-label">Fecha de Cita</label>
               <input type="date" class="form-control" id="fecha" placeholder="Fecha de Cita">
             </div>
+              <br>
             <div class="text-center">
               <button type="button" id="continuarButton" class="btn btn-light" style="color: black; border-color: black; width: 30%;">Continuar</button>
+            </div>
+                  <br>
+                      <div class="text-center">
+                          <br>
+              <button type="button" id="volverButton" class="btn btn-light" style="color: black; border-color: black; width: 30%;">Volver</button>
             </div>
           </form>
         </div>
@@ -47,6 +53,9 @@
 <script>
   document.getElementById("continuarButton").onclick = function() {
     window.location.href = "/barberia/lugar";
+  };
+   document.getElementById("volverButton").onclick = function() {
+    window.location.href = "/barberia/menu";
   };
   
 </script>
